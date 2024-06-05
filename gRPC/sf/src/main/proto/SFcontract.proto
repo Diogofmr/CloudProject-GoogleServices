@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sfservicestubs";
+
+package sfservice; // package of proto file
+
+service SfService {
+  /**
+   * Receives a stream of bytes composing an image and returns a StreamObserver to send back the ID of the image
+   * to the client.
+   *
+   * @param responseObserver - StreamObserver to send back the ID of the image to the client
+   * @return StreamObserver to receive the image bytes from the client
+  */
+  rpc submitImage(stream Image) returns (ID);
+
+  /**
+    * Receives a request containing the ID of an image and returns the image characteristics.
+    * image characteristic are the id of the image, labels, the language of the translation and the date of the image processing.
+    *
+    * @param request - ID containing the ID of the image to be processed
+    * @return ImageInfo containing the image characteristics
+   */
+  rpc getImageInfo(ID) returns (ImageInfo);
+
+  /**
+   * Receives a request containing two dates and a characteristic of an image and returns a StreamObserver to send
+   * back the names of the images that match the request.
+   *
+   * @param request          - ImagesRequest containing the two dates and the characteristic of the image to be searched
+   * @param responseObserver - StreamObserver to send back the names of the images that match the request
+  */
+  rpc getImagesNames(ImagesRequest) returns (ImagesNames);
+
+  /**
+   * Receives a request containing the ID of an image and returns a StreamObserver to send
+   * back the image to the client.
+   *
+   * @param request          - ID containing the ID of the image to be downloaded
+   * @param responseObserver - StreamObserver to send back the image to the client
+  */
+  rpc downloadImage(ID) returns (stream Image);
+}
+
+message Image {
+  // The image content
+  bytes content = 1;
+  // The image name
+  string name = 2;
+  // Language to be translated
+  string language = 3;
+}
+
+message ID {
+  // Identifier of the request (composed by the image-name and a uuid, ex: image.png-uuid)
+  string id = 1;
+}
+
+message Label {
+  // The characteristic name
+  string name = 1;
+  // The characteristic value
+  float value = 2;
+
+}
+
+message ImageInfo {
+  // The image characteristics
+  repeated Label labels = 1;
+  // The image translation
+  string language = 3;
+  // Date of the image processing
+  string date = 4;
+}
+
+message ImagesRequest {
+  // The initial date of the images to be retrieved (format: yyyy-MM-dd)
+  string iDate = 1;
+  // The final date of the images to be retrieved (format: yyyy-MM-dd)
+  string fDate = 2;
+  // The characteristic filter
+  string characteristic = 3;
+}
+
+message ImagesNames {
+  // The images names
+  repeated string names = 1;
+}
+

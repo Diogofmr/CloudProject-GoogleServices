@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "sgservicestubs";
+
+package sgservice; // package do proto
+
+service SgService {
+  /**
+   * Increment or decrement the number of instances of the server gRPC
+   * @param InstanceRequest - numberOfInstances: number of instances to increment or decrement
+   * @param InstanceRequest - increment: true to increment, false to decrement
+   * @return InstancesResponse - message: message with the result of the operation
+   */
+  rpc serverInstances(InstanceRequest) returns (InstancesResponse);
+
+  /**
+   * Increment or decrement the number of instances of the labels gRPC
+   * @param InstanceRequest - numberOfInstances: number of instances to increment or decrement
+   * @param InstanceRequest - increment: true to increment, false to decrement
+   * @return InstancesResponse - message: message with the result of the operation
+   */
+  rpc labelsInstances(InstanceRequest) returns (InstancesResponse);
+}
+
+message InstanceRequest {
+  string name = 1;
+  int32 numberOfInstances = 2;
+}
+
+message InstancesResponse {
+  string message = 1;
+}

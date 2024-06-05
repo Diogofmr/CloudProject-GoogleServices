@@ -1,0 +1,7 @@
+# Idea files
+.idea
+
+# Compiled Java files
+**/target/
+**/out/
+

@@ -1,0 +1,1 @@
+gcloud functions deploy funcIPLookup --project=cn2324-t1-g18 --region=europe-west1 --allow-unauthenticated --entry-point=ipLookup.Entrypoint --no-gen2 --runtime=java11 --trigger-http --source=target --service-account=backup-test-account@cn2324-t1-g18.iam.gserviceaccount.com --max-instances=3
