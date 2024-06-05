@@ -1,6 +1,9 @@
 # Cloud Computing Project - Labels and Translations
 
-<!-- Add some badges -->
+![Contributors](https://img.shields.io/github/contributors/Diogofmr/CloudProject-GoogleServices)
+![GitHub repo size](https://img.shields.io/github/repo-size/Diogofmr/CloudProject-GoogleServices)
+![GitHub top language](https://img.shields.io/github/languages/top/Diogofmr/CloudProject-GoogleServices)
+![GitHub Release Date](https://img.shields.io/github/release-date/Diogofmr/CloudProject-GoogleServices)
 
 <a name="readme-top"></a>
 
@@ -9,14 +12,13 @@
   <p align="center">
     Getting Labels and Translations from a image using Google Services.
     <br />
-    <a href="https://example.com"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Diogofmr/CloudProject-GoogleServices"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://example.com">View Demo</a>
     ·
-    <a href="https://example.com">Report Bug</a>
+    <a href="https://github.com/Diogofmr/CloudProject-GoogleServices/issues">Report Bug</a>
     ·
-    <a href="https://example.com">Request Feature</a>
+    <a href="https://github.com/Diogofmr/CloudProject-GoogleServices/issues">Request Feature</a>
   </p>
 </div>
 
@@ -34,7 +36,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <bli><a href="#usage">Usage</a></bli>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -118,7 +119,7 @@ We need to install the following software:
    (in the loggingApp module)
 
    ```sh
-   sudo gcloud functions deploy logging-app --project=cn2324-t1-g18 --region=europe-west2  --entry-point=loggingApp.LoggingApp --no-gen2 --runtime=java11 --trigger-topic image-requests --source=target/deployment --service-account=cn-v2324-firestore-18@cn2324-t1-g18.iam.gserviceaccount.com
+   gcloud functions deploy logging-app --project=cn2324-t1-g18 --region=europe-west2  --entry-point=loggingApp.LoggingApp --no-gen2 --runtime=java11 --trigger-topic image-requests --source=target/deployment --service-account=cn-v2324-firestore-18@cn2324-t1-g18.iam.gserviceaccount.com
    ```
 
 4. Run the client (in the clientApp module)
