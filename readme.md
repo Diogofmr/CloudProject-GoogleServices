@@ -25,7 +25,7 @@
 <!-- Logo -->
 <p align="center">
   <a href="https://www.bing.com/images/create/an-attractive-logo-for-a-cloud-computing-terminal-/1-6660776acc0646858569687789e24e23?id=XSutvlPSp%2fa3gJZp3u9kQw%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG1.3r4TA1qTX3pdZmfW2I2l&FORM=SYDBIC">
-    <img src="./images/cloud-computing.jpg" alt="Logo" height="800">
+    <img src="./images/cloud-computing.jpg" alt="Logo" height="600">
   </a>
 </p>
 
